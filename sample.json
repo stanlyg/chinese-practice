@@ -1,0 +1,12 @@
+{
+  "一":{ "pinyin": "yī", "english": "one"},
+  "二":{ "pinyin": "èr", "english": "two"},
+  "三":{ "pinyin": "sān", "english": "three"},
+  "日":{ "pinyin": "rì", "english": "sun"},
+  "月":{ "pinyin": "yuè", "english": "moon, month"},
+  "水":{ "pinyin": "shuǐ", "english": "water"},
+  "火":{ "pinyin": "huǒ", "english": "fire"},
+  "上":{ "pinyin": "shàng", "english": "up"},
+  "中":{ "pinyin": "zhōng", "english": "middle, center"},
+  "天":{ "pinyin": "tiān", "english": "sky"},
+}
