@@ -32,20 +32,6 @@ if len(options.pinyinfont) == 0:
 if len(options.englishfont) == 0:
     options.englishfont = options.pinyinfont
 
-# if options.save :
-#     print ("Add code to save config here.")
-#     print (f"options.config: {options.config}")
-#     if options.config is None:
-#       options.config=default_config_file
-#     print (f"options.config: {options.config}")
-#     parser.write_config_file(parser,options.config,exit_after=True)
-
-print(options)
-print("----------")
-print(parser.format_help())
-print("----------")
-print(parser.format_values())    # useful for logging where different settings came from
-
 topmargin = options.top_margin
 leftmargin = options.left_margin
 maxwidth = options.page_size[0]
