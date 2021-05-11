@@ -14,7 +14,7 @@ parser.add_argument("-c","--config",help="""
     the config file. Defaults to writing-page.ini in the current
     directory.""",is_config_file=True)
 parser.add_argument("-s","--save",action='store',help="Save configuration file to specified name. Use it later with the --config option.",is_write_out_config_file_arg=True)
-parser.add_argument("--page-size",nargs=2,default=(8.5,11),type=float,help="Specify page width and height. All size units are in inches.")
+parser.add_argument("--page-size",nargs=2,default=[8.5,11],metavar=('WIDTH','HEIGHT'),type=float,help="Specify page width and height. All size units are in inches.")
 parser.add_argument("--top-margin",default=0.25,type=float,help="Page top margin.")
 parser.add_argument("--left-margin",default=0.25,type=float, help="Page left margin.")
 parser.add_argument("--square-size",default=.7,type=float, help="Size of squares for Chinese characters. Font is autoscaled to 8/9 of the box size.")
@@ -110,6 +110,10 @@ pdf.set_auto_page_break(False)
 x = leftmargin
 row = 0
 for w, d in wordlist.items():
+  if pdf.get_y() + zh + vs + ph + 2 * topmargin > maxheight:
+    pdf.add_page()
+    row = 0
+
   if options.verbose:
     print (f'Word: {w}, pinyin: {d["pinyin"]}, english: {d["english"]}')
   y = topmargin + row * (vs + ph + zh) + vs
@@ -129,9 +133,6 @@ for w, d in wordlist.items():
 
   row = row + 1
 
-  if pdf.get_y() + zh > maxheight:
-    pdf.add_page()
-    row = 0
 
 
 pdf.output(options.output, 'F')
