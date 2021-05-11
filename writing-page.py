@@ -15,7 +15,7 @@ parser.add_argument("-c","--config",help="""
     directory.""",is_config_file=True)
 parser.add_argument("-s","--save",action='store',help="Save configuration file to specified name. Use it later with the --config option.",is_write_out_config_file_arg=True)
 parser.add_argument("--page-size",nargs=2,default=[8.5,11],metavar=('WIDTH','HEIGHT'),type=float,help="Specify page width and height. All size units are in inches.")
-parser.add_argument("--margins",nargs=2,default=[0.25,0.3],metavar=('VERTICALMARGIN','HORIZONTALMARGIN'),type=float,help="Page Vertical (top/bottom) and Horizional (left/right) margins.")
+parser.add_argument("--margins",nargs=2,default=[0.25,0.25],metavar=('VERTICALMARGIN','HORIZONTALMARGIN'),type=float,help="Page Vertical (top/bottom) and Horizional (left/right) margins.")
 parser.add_argument("--square-size",default=.7,type=float, help="Size of squares for Chinese characters. Font is autoscaled to 8/9 of the box size.")
 parser.add_argument("--pinyin-height",default=0.25,type=float, help="Height of pinyin text.")
 parser.add_argument("--vspace",default=0.1,type=float, help="Vertical space between bottom of square and top of pinyin.")
