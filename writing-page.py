@@ -80,7 +80,6 @@ def englishtext(p,x,y,w,h,s):
   p.set_font('english','',64*h) # approx 90% height
   p.cell(w,h,s,align='L')
 
-
 def addgrid(leftm,topm,pagew,pageh,boxw,boxh,vpad,hpad): 
   y = topm + vpad
   while y < pageh: 
@@ -92,7 +91,6 @@ def addgrid(leftm,topm,pagew,pageh,boxw,boxh,vpad,hpad):
 
 pdf = PDF('P','in',[options.page_size[0],options.page_size[1]])
 
-#pdf.add_font('zhongwen','','fireflysung.ttf',uni=True)
 pdf.add_font('zhongwen','',options.font,uni=True)
 pdf.add_font('pinyin','',options.pinyinfont, uni=True)
 pdf.add_font('english','',options.englishfont, uni=True)
@@ -101,8 +99,6 @@ pdf.add_page()
 
 with open(options.wordlist,"r") as f:
   wordlist = json.load(f)
-
-  
 
 pdf.set_auto_page_break(False)
 
@@ -118,12 +114,10 @@ for w, d in wordlist.items():
   y = topmargin + row * (vs + ph + zh) + vs
   pinyintext (pdf, x, y, pw, ph, d["pinyin"]) 
 
-#  savex = x
   x = x + pw + hs
   ew = maxwidth - leftmargin - pw
   englishtext(pdf, x, y, ew, ph, d["english"])
   pdf.set_xy(x,y)
-#  pdf.cell(4,ph,d["english"])
 
   x = leftmargin
 
@@ -131,7 +125,5 @@ for w, d in wordlist.items():
   zhongtext (pdf, x, y, zw, zh, w)
 
   row = row + 1
-
-
 
 pdf.output(options.output, 'F')
